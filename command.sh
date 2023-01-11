@@ -1,15 +1,14 @@
-# https://github.com/marangaa/my-app https://github.com/marangaa/
 npx create-react-app my-app
 cd my-app
-npm start
-
+gh auth login
 gh repo create
-
 git checkout -b update_logo
-
+sed -i "" "'s|img src={logo}|img src="https://www.propelleraero.com/wp-content/uploads/2021/05/Vector.svg"|g' src/App.js
+sed -i "" "'s|href="https://reactjs.org"|href="https://www.propelleraero.com/dirtmate/"|g' src/App.
 git add .
-git commit -m ""
+git commit -m "change logo and link"
+git push origin update_logo
+gh pr create --title "Update Logo" --body "Updating logo and link"
+gh pr merge
 
-gh pr create
-
-
+# REPO_URL: https://github.com/marangaa/my-app
